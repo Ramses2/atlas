@@ -48,7 +48,7 @@ export default function XcalrityPush() {
       console.log('TOKEN:',token);
 
       await axios.post('https://fast-peak-31574-d085f7fdfd09.herokuapp.com/register', {token});
-      //await axios.post('https://ca05-89-120-77-181.ngrok-free.app/register', {token});
+      //await axios.post('https://8967-89-120-77-181.ngrok-free.app/register', {token});
     } catch (err) {
       //Do nothing
       console.log(err.response.data);

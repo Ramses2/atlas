@@ -8,6 +8,11 @@ export default function XclarityBrowser() {
       <WebView
         source={{uri: 'https://qa1-xclarityone.lenovo.com'}}
         style={{flex: 1}}
+        injectedJavaScript={`
+const meta = document.createElement('meta'); 
+meta.setAttribute('content', 'width=device-width, initial-scale=1.2, maximum-scale=1.0, user-scalable=0'); 
+meta.setAttribute('name', 'viewport'); document.getElementsByTagName('head')[0].appendChild(meta); `
+}
       />
     </View>
   );
@@ -15,7 +20,7 @@ export default function XclarityBrowser() {
 
 const styles = StyleSheet.create({
   backgroundStyle: {
-    marginTop: 100,
+    marginTop: 10,
     backgroundColor: '#F0EEEE',
     height: 800,
     borderRadius: 5,
