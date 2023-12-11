@@ -8,7 +8,7 @@ export default function FirstScreen() {
       </View>
 
       <TouchableOpacity
-        //onPress={onAuthenticate}
+        onPress={onAuthenticate}
         style={styles.btn}>
         <Text style={styles.text}>Login</Text>
       </TouchableOpacity>
