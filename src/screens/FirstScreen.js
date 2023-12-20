@@ -4,7 +4,9 @@ import XclarityBrowser from "./XclarityBrowser";
 import XclarityConfiguration from './XclarityConfiguration';
 import { GlobalStyles } from '../../constants/style';
 import IconButton from '../../components/UI/IconButton';
-import Ionicons from 'react-native-vector-icons/Ionicons'
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import USBConnection from './USBConnection';
+import ThinkShield from './ThinkShield';
 
 
 const BottomTabs=createBottomTabNavigator();
@@ -35,13 +37,25 @@ export default function FirstScreen() {
     <BottomTabs.Screen name="Lenovo XClarity One" component={XclarityBrowser} options={{
       tile: 'XclarityBrowser',
       tabBarLebel:'Recent',
-      tabBarIcon:({color, size})=><Ionicons name="hourglass" size={size} color={color}/>
+      tabBarIcon:({color, size})=><Ionicons name="cloud" size={size} color={color}/>
     
     }}/>
     <BottomTabs.Screen name="Configuration" component={XclarityConfiguration} options={{
       tile: 'Configuration',
       tabBarLebel:'Configuration',
-      tabBarIcon:({color, size})=><Ionicons name="calendar" size={size} color={color}/>
+      tabBarIcon:({color, size})=><Ionicons name="cog" size={size} color={color}/>
+    
+    }}/>
+    <BottomTabs.Screen name="USB Connection" component={USBConnection} options={{
+      tile: 'USBConnection',
+      tabBarLebel:'USBConnection',
+      tabBarIcon:({color, size})=><Ionicons name="bluetooth" size={size} color={color}/>
+    
+    }}/>
+    <BottomTabs.Screen name="ThinkShield" component={ThinkShield} options={{
+      tile: 'ThinkShield',
+      tabBarLebel:'ThinkShield',
+      tabBarIcon:({color, size})=><Ionicons name="shield-half" size={size} color={color}/>
     
     }}/>
   </BottomTabs.Navigator>

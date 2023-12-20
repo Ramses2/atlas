@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect,useState} from "react";
 import {View, Text, StyleSheet,StatusBar} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -8,15 +8,22 @@ import FirstScreen from "./src/screens/FirstScreen";
 import XcalrityPush from "./src/screens/XclarityPush";
 import { GlobalStyles } from './constants/style';
 import IconButton from './components/UI/IconButton';
+import SplashScreen from "./components/SplahScreen";
 
 const Stack=createNativeStackNavigator();
 const BottomTabs=createBottomTabNavigator();
 
 const App=()=> {
+  const [isAppReady, setIsAppReady] = useState(false);
+
+  useEffect(() => {
+    setIsAppReady(true);
+  }, []);
   return (
     
     <>
       <XcalrityPush />
+      <SplashScreen isAppReady={isAppReady}>
       <StatusBar
         animated={true}
         backgroundColor="black"
@@ -33,6 +40,7 @@ const App=()=> {
           <Stack.Screen name="Lenovo XClarity One" component={XclarityBrowser} options={{presentation:'modal'}}/>
         </Stack.Navigator>
       </NavigationContainer>
+      </SplashScreen>
       </>
   )
 }
