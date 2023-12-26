@@ -1,9 +1,12 @@
-import React, { createRef, FunctionComponent } from 'react';
+import React, { createRef, useState } from 'react';
 import {View, StyleSheet, NativeSyntheticEvent} from 'react-native';
 import {WebView, WebViewNavigation} from 'react-native-webview';
 import { WebViewMessage } from 'react-native-webview/lib/WebViewTypes';
 
+
 export default function XclarityBrowser() {
+
+  const [webCookie, setWebCookie]=useState<any | null>(null);
 
   const CHECK_COOKIE = `
   ReactNativeWebView.postMessage("Cookie: " + document.cookie);
@@ -20,7 +23,9 @@ const onMessage = (event: NativeSyntheticEvent<WebViewMessage>) => {
   const { data } = event.nativeEvent;
 
   if (data.includes('Cookie:')) {
-    console.log(data)
+    var ncoockie = data.split("=").pop();
+    console.log(ncoockie);
+    setWebCookie(ncoockie);
   }
 };
 
@@ -38,7 +43,7 @@ let webViewRef = createRef<WebView>();
     <View style={styles.backgroundStyle}>
       <WebView
         ref={webViewRef}
-        source={{uri: 'https://qa1-xclarityone.lenovo.com/'}}
+        source={{uri: 'https://a548-89-120-77-181.ngrok-free.app/'}}
         style={{flex: 1}}
         injectedJavaScript={`
           const meta = document.createElement('meta'); 
